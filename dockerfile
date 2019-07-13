@@ -8,8 +8,12 @@ WORKDIR /app
 COPY . .
 
 # Build java application with maven
-RUN mvn -B -DskipTests clean package
+RUN mvn -B -DskipTests clean packagerun
  
+ 
+# Expose container port number 8084
+# Application will run on this port number
+EXPOSE 8084
 
-#EXPOSE 8081
-#CMD [ "npm", "start" ]
+# Entry point of container i.e. command which will start/run our application
+CMD [ "java", "-jar target/my-app-1.0-SNAPSHOT.jar" ]
