@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build java application with maven
-mvn -B -DskipTests clean package
+RUN mvn -B -DskipTests clean package
  
 
 #EXPOSE 8081
